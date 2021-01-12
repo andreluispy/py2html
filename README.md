@@ -51,7 +51,7 @@ Open an issue explaining how you can contribute to the project and show what you
 
 ## **How to learn?**
 
-- Documentation
+- [Documentation](https://github.com/andreluispy/py2html/tree/main/doc's)
 - GitHub issues
 - **Python Help:**
     ```python
