@@ -19,7 +19,7 @@ class web():
         '''
         self.content = []
     
-    def create(self, title='py2html site', lang='pt-br', bg='white'):
+    def create(self, title='py2html site', lang='pt-br', bg='white', fg='black'):
         '''
         creat: create webpage
 
@@ -27,10 +27,12 @@ class web():
             title = page title
             lang = page language
             bg = background color
+            fg = text color
         '''
         self.title = title
         self.lang = lang
         self.bg = bg
+        self.fg = fg
     
     #Layout Creator
     def html(self, code):
@@ -95,7 +97,7 @@ class web():
         html.write('<meta charset="UTF-8">')
         html.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
         html.write('</head>')
-        html.write('<body background-color:"'+self.bg+'">')
+        html.write('<body style="background-color:'+self.bg+'; color:'+self.fg+'">')
 
         for c in self.content:
             html.write(c)
