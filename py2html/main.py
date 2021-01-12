@@ -19,7 +19,7 @@ class web():
         '''
         self.content = []
     
-    def create(self, title='py2html site', lang='en'):
+    def create(self, title='py2html site', lang='pt-br'):
         '''
         creat: create webpage
 
@@ -39,16 +39,25 @@ class web():
             code = html code
         '''
         self.content.append(code)
-    def label(self, text='label', css=''):
+    def header(self, text='title', n='1'):
+        '''
+        Isert title
+
+        parameters:
+            text = title text
+            n = title level
+        '''
+        self.content.append('<h'+n+'>'+text+'</h'+n+'>')
+    def label(self, text='label', color='black'):
         '''
         Insert label
 
         parameters:
             text = label text
-            css = html css
+            color = text color
         '''
-        self.content.append('<p style="'+css+'">'+text+'</p>')
-    def href(self, text, link, css=''):
+        self.content.append('<p style="color:'+color+'">'+text+'</p>')
+    def href(self, text, link):
         '''
 
         Create href(link)
@@ -56,9 +65,17 @@ class web():
         parameters:
             text = href text
             link = href link
-            css = html css
         '''
-        self.content.append('<a href='+link+' style="'+css+'">'+text+'</a>')
+        self.content.append('<a href='+link+'>'+text+'</a>')
+    def image(self, image, caption='THIS IS A IMAGE'):
+        '''
+        Insert image
+
+        parameters:
+            image = image to insert
+            caption = if the image does not load show caption
+        '''
+        self.content.append('<img src="'+image+'" alt="'+caption+'">')
 
     def compile(self, name='page.html'):
         '''
@@ -67,20 +84,20 @@ class web():
         parameters:
             name = html file name, ex: compile(name='index.html')
         '''
-        html = open(name, 'w')
-        html.write('<DOCTYPE html>\n')
-        html.write('<html>\n')
+        html = open(name, 'w', encoding='UTF-8')
+        html.write('<DOCTYPE html>')
+        html.write('<html>')
 
-        html.write('    <head lang="'+self.lang+'">\n')
-        html.write('        <title>'+self.title+'</title>\n')
-        html.write('        <meta charset="UTF-8">\n')
-        html.write('        <meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
-        html.write('    </head>\n')
+        html.write('<head lang="'+self.lang+'">')
+        html.write('<title>'+self.title+'</title>')
+        html.write('<meta charset="UTF-8">')
+        html.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
+        html.write('</head>')
+        html.write('<body>')
 
-        html.write('    <body>\n')
         for c in self.content:
-            html.write('        '+c+'\n')
-        html.write('    </body>\n')
-
-        html.write('</html>\n')
+            html.write(c)
+        
+        html.write('</body>')
+        html.write('</html>')
         html.close()

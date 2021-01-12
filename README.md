@@ -19,7 +19,7 @@ pip install py2html
 
 #### **Linux/Mac**
 ```
-python3 pip install py2html
+sudo pip3 install py2html
 ```
 
 

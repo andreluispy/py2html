@@ -1,10 +1,10 @@
 from py2html.main import *
 
-site = web()
-site.create(title='My Site')
+page = web()
+page.create(title='Static Site')
 
-site.label(text='Hello World')
-site.href(link='https://www.google.com', text='google')
-site.label(text='created with py2html')
+page.header(text='LOREM IPSUM')
+page.header(text='CONTENT:', n='2')
+page.label(text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus iusto quibusdam labore quasi sint ut, nam eum, impedit temporibus rerum ratione necessitatibus magni qui aliquid. Laborum cum quas est numquam.')
 
-site.compile()
+page.compile()
