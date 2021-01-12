@@ -1,7 +1,7 @@
 from py2html.main import *
 
 page = web()
-page.create(title='Static Site')
+page.create(title='Static Site', bg='black')
 
 page.header(text='LOREM IPSUM')
 page.header(text='CONTENT:', n='2')
